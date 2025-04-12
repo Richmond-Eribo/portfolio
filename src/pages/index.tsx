@@ -11,8 +11,6 @@ import {
 } from "../components/ui/card";
 
 export default async function HomePage() {
-  const data = await getData();
-
   return (
     <main>
       <ProfileCard />
@@ -105,16 +103,6 @@ export default async function HomePage() {
     </main>
   );
 }
-
-const getData = async () => {
-  const data = {
-    title: "Waku",
-    headline: "Waku",
-    body: "Hello world!",
-  };
-
-  return data;
-};
 
 export const getConfig = async () => {
   return {
