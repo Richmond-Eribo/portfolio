@@ -1,4 +1,4 @@
-import { Link } from "waku";
+import { Link } from "react-router";
 
 export const Footer = () => {
   return (

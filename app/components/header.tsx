@@ -1,7 +1,5 @@
-"use client";
-
 import { ReactElement, useState } from "react";
-import { Link, useRouter } from "waku";
+import { Link, useLocation } from "react-router";
 import { cn, isActiveRoute } from "../lib/utils";
 import { Menu, X } from "lucide-react";
 import { LetsChat } from "./lets-chat";
@@ -90,7 +88,7 @@ function NavLinks({
   className?: string;
   toggleMenu: () => void;
 }) {
-  const { path } = useRouter();
+  const location = useLocation();
 
   return (
     <div className={cn("gap-2  md:flex", className)}>
@@ -101,7 +99,7 @@ function NavLinks({
           onClick={toggleMenu}
           className={cn(
             "px-3 py-2 text-sm flex items-center gap-1 text-gray-400 hover:text-white",
-            isActiveRoute(link.to, path)
+            isActiveRoute(link.to, location.pathname)
               ? "bg-zinc-800 rounded-full text-white"
               : ""
           )}

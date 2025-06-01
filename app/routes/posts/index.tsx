@@ -1,9 +1,7 @@
-import { Calendar, Clock, Tag } from "lucide-react";
-import { Link } from "waku";
+import { Calendar, Clock, Tag } from "lucide-react"
+import { Link } from "react-router"
 
 export default async function Posts() {
-  const data = await getData();
-
   return (
     <main>
       <h1 className="text-3xl font-bold text-white mb-8">Blog Posts</h1>
@@ -165,7 +163,7 @@ export default async function Posts() {
         </div>
       </div>
     </main>
-  );
+  )
 }
 
 const getData = async () => {
@@ -173,13 +171,13 @@ const getData = async () => {
     title: "Waku",
     headline: "Waku",
     body: "Hello world!",
-  };
+  }
 
-  return data;
-};
+  return data
+}
 
 export const getConfig = async () => {
   return {
     render: "static",
-  } as const;
-};
+  } as const
+}

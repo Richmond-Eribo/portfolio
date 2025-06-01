@@ -1,14 +1,14 @@
-import { ProfileCard } from "../components/profile-card";
-import { Bio } from "../components/bio";
-import { SocialLinks } from "../components/social-links";
-import { ArrowUpRight } from "lucide-react";
-import { personalities, roles } from "../lib/data";
+import { ProfileCard } from "../components/profile-card"
+import { Bio } from "../components/bio"
+import { SocialLinks } from "../components/social-links"
+import { ArrowUpRight } from "lucide-react"
+import { personalities, roles } from "../lib/data"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "../components/ui/card";
+} from "../components/ui/card"
 
 export default async function HomePage() {
   return (
@@ -24,7 +24,7 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          {personalities.map((per) => (
+          {personalities.map(per => (
             <Card
               className="last:col-span-2 max-md:col-span-2 "
               key={per.title}
@@ -78,34 +78,16 @@ export default async function HomePage() {
                   </li>
                 ))}
               </ul>
-
-              {/* <div className="flex flex-wrap gap-2">
-              <span className="px-2 py-1 bg-zinc-800 rounded-full text-xs">
-                TypeScript
-              </span>
-              <span className="px-2 py-1 bg-zinc-800 rounded-full text-xs">
-                React
-              </span>
-              <span className="px-2 py-1 bg-zinc-800 rounded-full text-xs">
-                Node.js
-              </span>
-              <span className="px-2 py-1 bg-zinc-800 rounded-full text-xs">
-                MongoDB
-              </span>
-              <span className="px-2 py-1 bg-zinc-800 rounded-full text-xs">
-                AWS
-              </span>
-            </div> */}
             </div>
           ))}
         </div>
       </div>
     </main>
-  );
+  )
 }
 
 export const getConfig = async () => {
   return {
     render: "static",
-  } as const;
-};
+  } as const
+}

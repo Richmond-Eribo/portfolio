@@ -1,4 +1,11 @@
 {
+  "include": [
+    "**/*",
+    "**/.server/**/*",
+    "**/.client/**/*",
+    ".react-router/types/**/*"
+  ],
+
   "compilerOptions": {
     "strict": true,
     "target": "esnext",
@@ -9,7 +16,16 @@
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-    "types": ["react/experimental"],
-    "jsx": "react-jsx"
+    "types": ["node", "vite/client"],
+    "jsx": "react-jsx",
+    "rootDirs": [".", "./.react-router/types"],
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./app/*"]
+    },
+
+    "lib": ["esnext", "dom", "dom.iterable"]
   }
 }
