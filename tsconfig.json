@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "./worker-configuration.d.ts"],
     "jsx": "react-jsx",
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
