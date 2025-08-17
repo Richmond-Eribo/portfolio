@@ -13,9 +13,10 @@ export function ProfileCard() {
           Uyiosa Richmond Eribo
         </h1>
         <p className="text-gray-400  text-left">
-          Frontend developer and Data scientist working remotely.
+          Frontend developer and Machine Learning Engineer <br /> working
+          remotely.
         </p>
       </div>
     </div>
-  );
+  )
 }
