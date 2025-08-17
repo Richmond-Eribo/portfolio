@@ -1,5 +1,3 @@
-import { Link } from "waku";
-
 export function LetsChat() {
   return (
     <a
@@ -22,5 +20,5 @@ export function LetsChat() {
       </svg>
       Let&apos;s Chat
     </a>
-  );
+  )
 }

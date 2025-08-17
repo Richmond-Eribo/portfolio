@@ -1,5 +1,4 @@
-import { Link } from "waku";
-import { Github, Linkedin, Mail, Twitter, Youtube } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Youtube } from "lucide-react"
 
 export function SocialLinks() {
   return (
@@ -42,5 +41,5 @@ export function SocialLinks() {
         <span>Email</span>
       </a>
     </div>
-  );
+  )
 }
