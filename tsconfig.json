@@ -23,7 +23,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": ["app/*"]
     },
 
     "lib": ["esnext", "dom", "dom.iterable"]

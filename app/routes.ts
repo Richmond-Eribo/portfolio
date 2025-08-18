@@ -7,17 +7,19 @@ import {
 } from "@react-router/dev/routes"
 
 export default [
-  index("./routes/index.tsx"),
+  layout("./routes/_layout.tsx", [
+    index("./routes/index.tsx"),
+    route("work", "./routes/work/index.tsx"),
+
+    ...prefix("projects", [
+      index("./routes/projects/index.tsx"),
+
+      ...prefix("graphic-design", [
+        index("./routes/projects/graphic-design.tsx"),
+        route(":id", "./routes/projects/detail-graphic-design.tsx"),
+      ]),
+    ]),
+  ]),
+
   // route("about", "./about.tsx"),
-
-  // layout("./auth/layout.tsx", [
-  //   route("login", "./auth/login.tsx"),
-  //   route("register", "./auth/register.tsx"),
-  // ]),
-
-  // ...prefix("concerts", [
-  //   index("./concerts/home.tsx"),
-  //   route(":city", "./concerts/city.tsx"),
-  //   route("trending", "./concerts/trending.tsx"),
-  // ]),
 ] satisfies RouteConfig

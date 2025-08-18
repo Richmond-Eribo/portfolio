@@ -2,47 +2,59 @@ import { ProfileCard } from "../components/profile-card"
 import { Bio } from "../components/bio"
 import { SocialLinks } from "../components/social-links"
 import { ArrowUpRight } from "lucide-react"
-import { personalities, roles } from "../lib/data"
+import { experience, roles } from "../lib/data"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "../components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <main>
       <ProfileCard />
+
       <Bio />
 
       <SocialLinks />
 
+      {/* experience */}
       <div className="mb-10">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-6">Personalities</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Experience</h2>
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          {personalities.map(per => (
+          {experience.map(per => (
             <Card
               className="last:col-span-2 max-md:col-span-2 "
               key={per.title}
             >
               <CardHeader>
-                <h3 className="font-medium text-white text-lg">{per.title} </h3>
+                <div className="w-full flex justify-between">
+                  <h3 className="font-medium text-white text-lg">
+                    {per.title}{" "}
+                  </h3>
+                  {per?.badge && (
+                    <Badge variant={"destructive"} className="rounded-full">
+                      {per?.badge}
+                    </Badge>
+                  )}
+                </div>
               </CardHeader>
 
               <CardContent>
                 <p className="text-sm leading-relaxed mb-4">{per.subtext}</p>
               </CardContent>
 
-              <CardFooter>
-                <div className="w-full flex justify-end">
-                  <div className="border border-zinc-800 rounded-full p-2">
-                    <ArrowUpRight />
-                  </div>
+              <CardFooter className="w-full flex justify-end">
+                {/* <div > */}
+                <div className="border border-zinc-800 rounded-full p-2 hover:rotate-12 cursor-pointer transition-transform">
+                  <ArrowUpRight />
                 </div>
+                {/* </div> */}
               </CardFooter>
             </Card>
           ))}
@@ -86,8 +98,8 @@ export default async function HomePage() {
   )
 }
 
-export const getConfig = async () => {
-  return {
-    render: "static",
-  } as const
-}
+// export const getConfig = async () => {
+//   return {
+//     render: "static",
+//   } as const
+// }

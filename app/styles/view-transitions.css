@@ -1,0 +1,64 @@
+/* defaults */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+::view-transition-group(*) {
+  animation-duration: 0.6s;
+}
+
+/* view transition for graphic design posters not using scss */
+[data-view-transition="poster-0"] {
+  view-transition-name: poster-0;
+}
+
+[data-view-transition="poster-1"] {
+  view-transition-name: poster-1;
+}
+
+[data-view-transition="poster-2"] {
+  view-transition-name: poster-2;
+}
+
+[data-view-transition="poster-3"] {
+  view-transition-name: poster-3;
+}
+
+[data-view-transition="poster-4"] {
+  view-transition-name: poster-4;
+}
+
+[data-view-transition="poster-5"] {
+  view-transition-name: poster-5;
+}
+
+[data-view-transition="poster-6"] {
+  view-transition-name: poster-6;
+}
+
+[data-view-transition="poster-7"] {
+  view-transition-name: poster-7;
+}
+
+[data-view-transition="poster-8"] {
+  view-transition-name: poster-8;
+}
+
+[data-view-transition="poster-9"] {
+  view-transition-name: poster-9;
+}
+
+[data-view-transition="poster-10"] {
+  view-transition-name: poster-10;
+}
+
+[data-view-transition="poster-11"] {
+  view-transition-name: poster-11;
+}
+
+[data-view-transition="poster-12"] {
+  view-transition-name: poster-12;
+}

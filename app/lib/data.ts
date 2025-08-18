@@ -1,6 +1,10 @@
-export const personalities = [
+import { GraphicProject } from "@/types/data_types"
+
+const R2PublicURL = import.meta.env.VITE_PUBLIC_R2_STORAGE_URL
+
+export const experience = [
   {
-    title: "Data Scientist",
+    title: "Machine Learning Engineer",
     subtext:
       "This is all about documenting my journey into data science. Driven by the need to make meaning of the data available in Africa to spur developement by building for the market. ",
     linkTo: "",
@@ -16,8 +20,9 @@ export const personalities = [
     subtext:
       "At the beginning of building my vision—excited to explore, create, and inspire as I take my first steps. and inspire as I take my first steps.",
     linkTo: "",
+    badge: "Explored",
   },
-];
+]
 
 export const roles = [
   {
@@ -75,4 +80,43 @@ export const roles = [
       "Designed brochures for government initiatives using InDesign",
     ],
   },
-];
+]
+
+export const advertisingProjects: GraphicProject = {
+  title: "Advertisement",
+  description: "A captivating advertisement design for a local business.",
+  projects: [
+    {
+      title: "Aliko Dangote",
+      id: "aliko_dangote",
+      category: "congratulatory",
+      description:
+        "A powerful advertisement congratulating Aliko Dangote on the successful launch of his oil refinery.",
+      imageUrl: `${R2PublicURL}/Adverts/AD_Aliko_Dangote.jpg`,
+    },
+    {
+      title: "Cyril Odianose Usifoh",
+      id: "cyril_odianose_usifoh",
+      category: "congratulatory",
+      description:
+        "A powerful advertisement congratulating Cyril Odianose Usifoh on his investiture as a fellow of the Pharmaceutical Society of Nigeria.",
+      imageUrl: `${R2PublicURL}/Adverts/AD_Cyril_Odianose_Usifoh.jpg`,
+    },
+    {
+      title: "Daisy Danjuma",
+      id: "daisy_danjuma",
+      category: "celebration",
+      description:
+        "A powerful advertisement congratulating Daisy Danjuma on her achievements.",
+      imageUrl: `${R2PublicURL}/Adverts/AD_Daisy_Danjuma.jpg`,
+    },
+    {
+      title: "Soni Irabor",
+      id: "soni_irabor",
+      category: "celebration",
+      description:
+        "Advertisements congratulating the Media Icon Soni Irabor on his 70th birthday Celebration",
+      imageUrl: `${R2PublicURL}/Adverts/AD_Soni_Irabor.jpg`,
+    },
+  ],
+}
