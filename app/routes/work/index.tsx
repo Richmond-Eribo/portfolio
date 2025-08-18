@@ -1,6 +1,4 @@
 export default async function Work() {
-  const data = await getData();
-
   return (
     <main>
       <h1 className="text-3xl font-bold text-white mb-8">Work Experience</h1>
@@ -216,7 +214,7 @@ export default async function Work() {
         </div>
       </div>
     </main>
-  );
+  )
 }
 
 const getData = async () => {
@@ -224,13 +222,13 @@ const getData = async () => {
     title: "Waku",
     headline: "Waku",
     body: "Hello world!",
-  };
+  }
 
-  return data;
-};
+  return data
+}
 
 export const getConfig = async () => {
   return {
     render: "static",
-  } as const;
-};
+  } as const
+}
