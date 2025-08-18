@@ -1,10 +1,8 @@
 import { GraphicProject } from "@/types/data_types"
-import { env } from "cloudflare:workers"
 
 export const R2PublicURL =
   import.meta.env.VITE_PUBLIC_R2_STORAGE_URL ||
-  process.env.VITE_PUBLIC_R2_STORAGE_URL ||
-  env.VITE_PUBLIC_R2_STORAGE_URL
+  process.env.VITE_PUBLIC_R2_STORAGE_URL
 
 export const experience = [
   {
