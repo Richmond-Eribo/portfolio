@@ -121,14 +121,14 @@ const experience = [
   {
     title: "AI & ML Engineer",
     subtext:
-      "This is all about documenting my journey into AI & ML engineering as an Msc Student in Artificial Intelligence (Teeside University). Exploring the fascinating world of algorithms, data models, and intelligent systems.",
+      "This is all about documenting my journey into AI & ML engineering as an Msc Student in Artificial Intelligence (Teeside University).",
     linkTo: "#",
     // icons: [],
   },
   {
     title: "Frontend  Engineering",
     subtext:
-      "On my journey to craft engaging interfaces, one line of code at a time, learning and growing with every click.",
+      "Crafting engaging interfaces, one line of code at a time, learning and growing with every click.",
     linkTo: "#",
     icons: [
       NextjsIcon,
@@ -144,7 +144,7 @@ const experience = [
   {
     title: "Graphics Designer",
     subtext:
-      "At the beginning of building my vision—excited to explore, create, and inspire as I take my first steps. and inspire as I take my first steps.",
+      "Dabbling in the art of visual storytelling, where colors, shapes, and creativity converge to bring ideas to life.",
     linkTo: "projects/graphic-design",
     badge: "Explored",
     icons: [
