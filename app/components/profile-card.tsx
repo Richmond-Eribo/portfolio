@@ -4,9 +4,9 @@ export function ProfileCard() {
       <img
         src="/images/richmond.webp"
         alt="Richmond Uyiosa Eribo"
-        width={90}
-        height={90}
-        className="rounded-xl border-2 border-zinc-700"
+        width={120}
+        // height={120}
+        className="rounded-xl border-2 border-zinc-700 aspect-[4/5] object-cover"
       />
       <div className="self-end">
         <h1 className="text-xl lg:text-3xl font-bold text-white  md:text-left">

@@ -9,7 +9,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
 
 export function Bio() {
   return (
-    <div className="space-y-6 mb-10 sm:text-lg">
+    <div className="space-y-6  sm:text-lg">
       <p className="leading-relaxed">
         I’m a frontend developer and a ML engineer. I focus on building and the
         processes involved in applying <ArtificialIntelligenceCourse /> to

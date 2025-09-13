@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Twitter, Youtube } from "lucide-react"
 
 export function SocialLinks() {
   return (
-    <div className="flex flex-wrap gap-3 mb-12">
+    <div className="flex flex-wrap gap-3">
       <a
         href="https://github.com/Richmond-Eribo"
         target="_blank"

@@ -4,27 +4,13 @@ export const R2PublicURL =
   import.meta.env.VITE_PUBLIC_R2_STORAGE_URL ||
   process.env.VITE_PUBLIC_R2_STORAGE_URL
 
-export const experience = [
-  {
-    title: "Machine Learning Engineer",
-    subtext:
-      "This is all about documenting my journey into data science. Driven by the need to make meaning of the data available in Africa to spur developement by building for the market. ",
-    linkTo: "",
-  },
-  {
-    title: "Frontend  Engineering",
-    subtext:
-      "On my journey to craft engaging interfaces, one line of code at a time, learning and growing with every click.",
-    linkTo: "",
-  },
-  {
-    title: "Graphics Designer",
-    subtext:
-      "At the beginning of building my vision—excited to explore, create, and inspire as I take my first steps. and inspire as I take my first steps.",
-    linkTo: "",
-    badge: "Explored",
-  },
-]
+// FigmaIcon
+// PhotoshopIcon
+// IndesignIcon
+// IllustratorIcon
+// AfterEffectIcon
+// CanvaIcon
+// AffinityPhoto
 
 export const roles = [
   {

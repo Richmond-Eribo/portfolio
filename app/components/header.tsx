@@ -1,102 +1,40 @@
-import { ReactElement, useState } from "react";
-import { Link, useLocation } from "react-router";
-import { cn, isActiveRoute } from "../lib/utils";
-import { Menu, X } from "lucide-react";
-import { LetsChat } from "./lets-chat";
+import { ReactElement } from "react"
+import { Link, useLocation } from "react-router"
+import { cn, isActiveRoute } from "../lib/utils"
+import { LetsChat } from "./lets-chat"
 
 export const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
   return (
     <nav
       className={cn(
-        "max-w-3xl  w-full px-4 absolute transition-all duration-300 delay-75 top-8 left-1/2 -translate-x-1/2  h-13",
-        menuOpen && "h-56"
+        "max-w-3xl  w-full px-4 absolute transition-all duration-300 delay-75 top-8 left-1/2 -translate-x-1/2  h-13"
       )}
     >
       {/* nav content */}
       <div
         className={cn(
-          "bg-zinc-900  p-3 transition-all duration-100 ease-in h-full flex items-center justify-between",
-          menuOpen ? "rounded-2xl " : "rounded-full delay-300"
+          "bg-zinc-900  p-3 h-full flex items-center justify-between rounded-full"
         )}
       >
-        <div
-          className={cn(
-            "flex justify-between delay-300 w-full",
-            menuOpen && "border-b pb-2 border-zinc-700  "
-          )}
-        >
-          {/* TODO:  work on the pages */}
-          {/* mobile hamburger menu  */}
-          <HamburgerIcon
-            menuOpen={menuOpen}
-            toggleMenu={() => setMenuOpen((prev) => !prev)}
-          />
-
-          {/* desktop links */}
-          <NavLinks
-            // className="hidden"
-            toggleMenu={() => setMenuOpen((prev) => !prev)}
-          />
+        <div className={cn("flex justify-between w-full")}>
+          <NavLinks />
 
           <LetsChat />
         </div>
-
-        {/* Mobile Links */}
-        <div
-          className={cn(
-            "py-4 ease-in delay-300",
-            menuOpen ? " visible " : "invisible opacity-0"
-          )}
-        >
-          {menuOpen && (
-            <NavLinks toggleMenu={() => setMenuOpen((prev) => !prev)} />
-          )}
-        </div>
       </div>
     </nav>
-  );
-};
-
-function HamburgerIcon({
-  menuOpen,
-  toggleMenu,
-}: {
-  menuOpen: boolean;
-  toggleMenu: () => void;
-}) {
-  return (
-    <button onClick={toggleMenu} className="hidden">
-      {menuOpen ? (
-        <X size="18" className="text-gray-400" />
-      ) : (
-        <Menu size="18" className="text-gray-400" />
-      )}
-    </button>
-  );
+  )
 }
 
-function NavLinks({
-  className,
-  toggleMenu,
-}: {
-  className?: string;
-  toggleMenu: () => void;
-}) {
-  const location = useLocation();
+function NavLinks({ className }: { className?: string }) {
+  const location = useLocation()
 
   return (
     <div className={cn("gap-2  md:flex", className)}>
-      {navLinks.map((link) => (
+      {navLinks.map(link => (
         <Link
           key={link.label}
           to={link.to}
-          onClick={toggleMenu}
           className={cn(
             "px-3 py-2 text-sm flex items-center gap-1 text-gray-400 hover:text-white",
             isActiveRoute(link.to, location.pathname)
@@ -109,15 +47,15 @@ function NavLinks({
         </Link>
       ))}
     </div>
-  );
+  )
 }
 
 type NavLink = {
-  label: string;
-  to: "/" | "/posts" | "/projects" | "/work";
-  icon: ReactElement;
-  className?: string;
-};
+  label: string
+  to: "/" | "/posts" | "/projects" | "/work"
+  icon: ReactElement
+  className?: string
+}
 
 const navLinks: NavLink[] = [
   {
@@ -200,4 +138,4 @@ const navLinks: NavLink[] = [
   //     </svg>
   //   ),
   // },
-];
+]

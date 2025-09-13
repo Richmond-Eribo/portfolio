@@ -1,6 +1,5 @@
 import { advertisingProjects } from "./app/lib/data"
 import type { Config } from "@react-router/dev/config"
-import { ad } from "node_modules/react-router/dist/development/route-data-C12CLHiN.mjs"
 
 export default {
   // Config options...
@@ -13,6 +12,7 @@ export default {
 
   async prerender() {
     return [
+      "/",
       // prerendering the advertising projects
       ...advertisingProjects.projects.map(
         (project, index) => `/projects/graphic-design/${index}-${project.id}`

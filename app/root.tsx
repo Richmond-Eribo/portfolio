@@ -30,10 +30,63 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Richmond Eribo | Frontend Engineer</title>
+        <meta name="title" content="Uyiosa Richmond Eribo" />
+        <meta
+          name="description"
+          content="Frontend Engineer building high-performance, user-centric web applications for startups, government agencies, and global brands. Passionate about modern web technologies, AI, and digital innovation."
+        />
+
+        {/* open graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://richmonderibo.dev/" />
+        <meta property="og:title" content="Uyiosa Richmond Eribo" />
+        <meta
+          property="og:description"
+          content="Frontend Engineer building high-performance, user-centric web applications for startups, government agencies, and global brands. Passionate about modern web technologies, AI, and digital innovation."
+        />
+        <meta
+          property="og:image"
+          content="https://richmonderibo.dev/richmond.webp"
+        />
+
+        {/* Twitter  */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://richmonderibo.dev/" />
+        <meta name="twitter:title" content="Uyiosa Richmond Eribo" />
+        <meta
+          name="twitter:description"
+          content="Frontend Engineer building high-performance, user-centric web applications for startups, government agencies, and global brands. Passionate about modern web technologies, AI, and digital innovation."
+        />
+        <meta
+          name="twitter:image"
+          content="https://richmonderibo.dev/richmond.webp"
+        />
+
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest"></link>
+
         <Meta />
         <Links />
       </head>
-      <body className="font-geist  bg-black text-gray-300">
+      <body className="font-geist tracking-wide">
         {children}
 
         <ScrollRestoration />

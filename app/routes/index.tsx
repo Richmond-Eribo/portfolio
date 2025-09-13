@@ -2,41 +2,54 @@ import { ProfileCard } from "../components/profile-card"
 import { Bio } from "../components/bio"
 import { SocialLinks } from "../components/social-links"
 import { ArrowUpRight } from "lucide-react"
-import { experience, roles } from "../lib/data"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "../components/ui/card"
+import { roles } from "../lib/data"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
+import { SkillsCarousel } from "@/components/skills-carousel"
+
+import {
+  // AffinityPhoto,
+  AfterEffectIcon,
+  CanvaIcon,
+  CssIcon,
+  FigmaIcon,
+  IllustratorIcon,
+  IndesignIcon,
+  NextjsIcon,
+  PhotoshopIcon,
+  ReactIcon,
+  SqlIcon,
+  SvelteIcon,
+  TailwindCssIcon,
+  VuejsIcon,
+  WorldpressIcon,
+} from "@/components/svgs"
+import { Link } from "react-router"
+import { ContactMe } from "@/components/contact-me"
 
 export default function HomePage() {
   return (
-    <main>
-      <ProfileCard />
+    <div className="space-y-20">
+      <div>
+        <ProfileCard />
 
-      <Bio />
-
+        <Bio />
+      </div>
       <SocialLinks />
 
       {/* experience */}
-      <div className="mb-10">
+      <div className="">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-6">Experience</h2>
+          <h2 className="text-2xl font-bold mb-6">Experience</h2>
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          {experience.map(per => (
-            <Card
-              className="last:col-span-2 max-md:col-span-2 "
-              key={per.title}
-            >
+          {experience.map((per, index) => (
+            <Card className="last:col-span-2 max-md:col-span-2 " key={index}>
               <CardHeader>
                 <div className="w-full flex justify-between">
-                  <h3 className="font-medium text-white text-lg">
-                    {per.title}{" "}
-                  </h3>
+                  <h3 className="font-medium  text-lg">{per.title} </h3>
                   {per?.badge && (
                     <Badge variant={"destructive"} className="rounded-full">
                       {per?.badge}
@@ -45,61 +58,103 @@ export default function HomePage() {
                 </div>
               </CardHeader>
 
-              <CardContent>
-                <p className="text-sm leading-relaxed mb-4">{per.subtext}</p>
+              <CardContent className="h-full">
+                <p className=" leading-relaxed mb-4 ">{per.subtext}</p>
               </CardContent>
 
-              <CardFooter className="w-full flex justify-end">
-                {/* <div > */}
-                <div className="border border-zinc-800 rounded-full p-2 hover:rotate-12 cursor-pointer transition-transform">
-                  <ArrowUpRight />
-                </div>
-                {/* </div> */}
+              <CardFooter className="relative w-full flex justify-between gap-5">
+                <SkillsCarousel
+                  icons={per.icons as any[]}
+                  className={cn(index == 2 ? "max-w-[30%]" : "max-w-[70%]")}
+                />
+
+                {per.icons && (
+                  <Link
+                    to={per.linkTo}
+                    className="border border-zinc-800 rounded-full p-2 hover:rotate-12 duration-200 cursor-pointer transition-transform"
+                  >
+                    <ArrowUpRight />
+                  </Link>
+                )}
               </CardFooter>
             </Card>
           ))}
         </div>
       </div>
 
-      {/* Work History */}
-      <div className="mb-10">
-        <h2 className="text-2xl font-bold text-white mb-6">Work History</h2>
+      {/* Blog Posts */}
+      <div className="">
+        <div>
+          <h2 className="text-2xl font-bold mb-6">My Thoughts</h2>
+        </div>
 
-        <div className="space-y-6">
-          {/* Job 1 */}
-          {roles.map((role, i) => (
-            <div
-              key={i}
-              className="bg-zinc-900 p-5 rounded-lg border border-zinc-800"
-            >
-              <div className="flex flex-col md:flex-row justify-between mb-3">
-                <div>
-                  <h3 className="font-medium text-white text-lg">
-                    {role.position}
-                  </h3>
-                  <p className="text-blue-400">{role.organization} </p>
-                </div>
-                <p className="text-gray-400 text-sm mt-1 md:mt-0">
-                  {role.duration}
-                </p>
-              </div>
-              <ul className="list-disc pl-4">
-                {role.responsibilities.map((res, i) => (
-                  <li key={i} className="text-sm leading-relaxed mb-4">
-                    {res}
-                  </li>
-                ))}
-              </ul>
+        <div>
+          <Link
+            to={
+              "https://medium.com/@uyiosaeribo344/undergraduate-ecosystem-in-nigeria-d3069231e235"
+            }
+            target="_blank"
+            className="space-y-2"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <h4>Undergraduate Ecosystem In Nigeria</h4>
+              <span>Oct 8, 2019</span>
             </div>
-          ))}
+            <p className="text-sm text-zinc-500 max-w-92 lg:max-w-[550px] line-clamp-2">
+              The first thing that any city trying to create a start-up
+              community or an entrepreneurial ecosystem that’s vibrant should
+              do, is to get rid of the ideal that; they’re trying to be like
+              Silicon valley. 
+            </p>
+          </Link>
         </div>
       </div>
-    </main>
+
+      <div>
+        <ContactMe />
+      </div>
+    </div>
   )
 }
 
-// export const getConfig = async () => {
-//   return {
-//     render: "static",
-//   } as const
-// }
+const experience = [
+  {
+    title: "AI & ML Engineer",
+    subtext:
+      "This is all about documenting my journey into AI & ML engineering as an Msc Student in Artificial Intelligence (Teeside University). Exploring the fascinating world of algorithms, data models, and intelligent systems.",
+    linkTo: "#",
+    // icons: [],
+  },
+  {
+    title: "Frontend  Engineering",
+    subtext:
+      "On my journey to craft engaging interfaces, one line of code at a time, learning and growing with every click.",
+    linkTo: "#",
+    icons: [
+      NextjsIcon,
+      SvelteIcon,
+      ReactIcon,
+      CssIcon,
+      VuejsIcon,
+      TailwindCssIcon,
+      SqlIcon,
+      WorldpressIcon,
+    ],
+  },
+  {
+    title: "Graphics Designer",
+    subtext:
+      "At the beginning of building my vision—excited to explore, create, and inspire as I take my first steps. and inspire as I take my first steps.",
+    linkTo: "projects/graphic-design",
+    badge: "Explored",
+    icons: [
+      FigmaIcon,
+      PhotoshopIcon,
+      IndesignIcon,
+      IllustratorIcon,
+      AfterEffectIcon,
+      CanvaIcon,
+      // AffinityPhoto,
+    ],
+  },
+]
