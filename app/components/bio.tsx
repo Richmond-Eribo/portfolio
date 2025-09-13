@@ -13,8 +13,7 @@ export function Bio() {
       <p className="leading-relaxed">
         I’m a frontend developer and a ML engineer. I focus on building and the
         processes involved in applying <ArtificialIntelligenceCourse /> to
-        real-world problems. I have over five years of experience working in
-        different industries.
+        real-world problems.
       </p>
 
       <p className="leading-relaxed">

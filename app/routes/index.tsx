@@ -110,9 +110,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <ContactMe />
-      </div>
+      </div> */}
     </div>
   )
 }
