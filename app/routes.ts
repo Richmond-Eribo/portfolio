@@ -19,6 +19,11 @@ export default [
         route(":id", "./routes/projects/detail-graphic-design.tsx"),
       ]),
     ]),
+
+    ...prefix("posts", [
+      index("./routes/posts/index.tsx"),
+      route(":slug", "./routes/posts/[slug]/index.tsx"),
+    ]),
   ]),
 
   // route("about", "./about.tsx"),

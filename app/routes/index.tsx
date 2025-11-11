@@ -86,19 +86,22 @@ export default function HomePage() {
       <div className="">
         <div>
           <h2 className="text-2xl font-bold mb-6">My Thoughts</h2>
+          <Link to="/posts" className="text-blue-400 hover:text-blue-300 text-sm ml-2">
+            View all →
+          </Link>
         </div>
 
-        <div>
+        <div className="space-y-4">
           <Link
             to={
               "https://medium.com/@uyiosaeribo344/undergraduate-ecosystem-in-nigeria-d3069231e235"
             }
             target="_blank"
-            className="space-y-2"
+            className="block space-y-2 p-4 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
           >
             <div className="flex items-center justify-between gap-4">
-              <h4>Undergraduate Ecosystem In Nigeria</h4>
-              <span>Oct 8, 2019</span>
+              <h4 className="font-medium">Undergraduate Ecosystem In Nigeria</h4>
+              <span className="text-sm text-zinc-500">Oct 8, 2019</span>
             </div>
             <p className="text-sm text-zinc-500 max-w-92 lg:max-w-[550px] line-clamp-2">
               The first thing that any city trying to create a start-up
