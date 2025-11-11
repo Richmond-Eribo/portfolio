@@ -17,7 +17,8 @@ async function buildBlogData() {
   const posts = [];
 
   for (const fileName of fileNames) {
-    if (!fileName.endsWith('.md')) continue;
+    // Skip README and non-markdown files
+    if (!fileName.endsWith('.md') || fileName === 'README.md') continue;
 
     const slug = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
