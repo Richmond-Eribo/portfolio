@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/build-blog-data.js",
     "build": "react-router build",
     "dev": "react-router dev --host",
     "start": "react-router-serve ./build/server/index.js",

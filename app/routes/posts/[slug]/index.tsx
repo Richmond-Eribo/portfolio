@@ -2,10 +2,10 @@ import { useParams } from "react-router"
 import { getPostBySlug } from "@/lib/blog"
 import { Calendar, Clock, Tag } from "lucide-react"
 
-export default async function SinglePost() {
+export default function SinglePost() {
   const params = useParams()
   const slug = params.slug as string
-  const post = await getPostBySlug(slug)
+  const post = getPostBySlug(slug)
 
   if (!post) {
     return (
