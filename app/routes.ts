@@ -11,6 +11,7 @@ export default [
     index("./routes/index.tsx"),
     route("work", "./routes/work/index.tsx"),
 
+    // Projects
     ...prefix("projects", [
       index("./routes/projects/index.tsx"),
 
@@ -18,6 +19,12 @@ export default [
         index("./routes/projects/graphic-design.tsx"),
         route(":id", "./routes/projects/detail-graphic-design.tsx"),
       ]),
+    ]),
+
+    // Thoughts
+    ...prefix("thoughts", [
+      index("./routes/thoughts/index.tsx"),
+      route(":slug", "./routes/thoughts/slug.tsx"),
     ]),
   ]),
 

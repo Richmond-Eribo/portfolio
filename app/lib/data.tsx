@@ -12,6 +12,8 @@ export const R2PublicURL =
 // CanvaIcon
 // AffinityPhoto
 
+export const SITE_URL = "https://richmonderibo.dev"
+
 export const roles = [
   {
     position: "IT Specialist",

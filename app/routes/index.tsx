@@ -27,8 +27,22 @@ import {
 } from "@/components/svgs"
 import { Link } from "react-router"
 import { ContactMe } from "@/components/contact-me"
+import { HomeVideo } from "@/components/home-video"
+import { getAllPostsMeta } from "@/lib/posts"
+import type { Route } from "./+types/index"
 
-export default function HomePage() {
+export async function loader() {
+  const posts = getAllPostsMeta()
+  return {
+    posts,
+  }
+}
+
+export default function HomePage({ loaderData }: Route.ComponentProps) {
+  const { posts } = loaderData
+
+  const latestPosts = posts.slice(0, 3)
+
   return (
     <div className="space-y-20">
       <div>
@@ -38,11 +52,11 @@ export default function HomePage() {
       </div>
       <SocialLinks />
 
+      <HomeVideo />
+
       {/* experience */}
       <div className="">
-        <div>
-          <h2 className="text-2xl font-bold mb-6">Experience</h2>
-        </div>
+        <h2 className="text-2xl font-bold mb-6">Experience</h2>
 
         <div className="grid grid-cols-2 gap-6">
           {experience.map((per, index) => (
@@ -82,31 +96,44 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Blog Posts */}
+      {/* Thoughts */}
       <div className="">
         <div>
-          <h2 className="text-2xl font-bold mb-6">My Thoughts</h2>
+          <h2 className="text-2xl font-bold mb-6">Thoughts</h2>
         </div>
 
-        <div>
-          <Link
-            to={
-              "https://medium.com/@uyiosaeribo344/undergraduate-ecosystem-in-nigeria-d3069231e235"
-            }
-            target="_blank"
-            className="space-y-2"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <h4>Undergraduate Ecosystem In Nigeria</h4>
-              <span>Oct 8, 2019</span>
-            </div>
-            <p className="text-sm text-zinc-500 max-w-92 lg:max-w-[550px] line-clamp-2">
-              The first thing that any city trying to create a start-up
-              community or an entrepreneurial ecosystem that’s vibrant should
-              do, is to get rid of the ideal that; they’re trying to be like
-              Silicon valley. 
-            </p>
-          </Link>
+        <div className="space-y-6">
+          {latestPosts.length === 0 ? (
+            <p className="text-sm text-zinc-500">No thoughts yet.</p>
+          ) : (
+            latestPosts.map(post => (
+              <Link
+                key={post.slug}
+                to={`/thoughts/${post.slug}`}
+                className="space-y-2 block"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <h4 className="font-medium">{post.title}</h4>
+                  <span className="text-sm text-zinc-500">
+                    {new Date(post.date).toLocaleDateString()}
+                  </span>
+                </div>
+                {post.description && (
+                  <p className="text-sm text-zinc-500 max-w-92 lg:max-w-[550px] line-clamp-2">
+                    {post.description}
+                  </p>
+                )}
+              </Link>
+            ))
+          )}
+          <div>
+            <Link
+              to="/thoughts"
+              className="text-sm text-zinc-300 hover:text-white"
+            >
+              View all thoughts →
+            </Link>
+          </div>
         </div>
       </div>
 
