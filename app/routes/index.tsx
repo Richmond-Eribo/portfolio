@@ -1,12 +1,15 @@
 import { ProfileCard } from "../components/profile-card"
-import { Bio } from "../components/bio"
+import { Bio } from "@/components/bio"
 import { SocialLinks } from "../components/social-links"
 import { ArrowUpRight } from "lucide-react"
-import { roles } from "../lib/data"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
-import { SkillsCarousel } from "@/components/skills-carousel"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../components/ui/card"
+import { cn } from "../lib/utils"
+import { SkillsCarousel } from "../components/skills-carousel"
 
 import {
   // AffinityPhoto,
@@ -24,11 +27,10 @@ import {
   TailwindCssIcon,
   VuejsIcon,
   WorldpressIcon,
-} from "@/components/svgs"
+} from "../components/svgs"
 import { Link } from "react-router"
-import { ContactMe } from "@/components/contact-me"
-import { HomeVideo } from "@/components/home-video"
-import { getAllPostsMeta } from "@/lib/posts"
+import { HomeVideo } from "../components/home-video"
+import { getAllPostsMeta } from "../lib/posts"
 import type { Route } from "./+types/index"
 
 export async function loader() {
@@ -60,15 +62,10 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
 
         <div className="grid grid-cols-2 gap-6">
           {experience.map((per, index) => (
-            <Card className="last:col-span-2 max-md:col-span-2 " key={index}>
+            <Card className="max-md:col-span-2 " key={index}>
               <CardHeader>
                 <div className="w-full flex justify-between">
                   <h3 className="font-medium  text-lg">{per.title} </h3>
-                  {per?.badge && (
-                    <Badge variant={"destructive"} className="rounded-full">
-                      {per?.badge}
-                    </Badge>
-                  )}
                 </div>
               </CardHeader>
 
@@ -118,9 +115,9 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
                     {new Date(post.date).toLocaleDateString()}
                   </span>
                 </div>
-                {post.description && (
+                {post.percept && (
                   <p className="text-sm text-zinc-500 max-w-92 lg:max-w-[550px] line-clamp-2">
-                    {post.description}
+                    {post.percept}
                   </p>
                 )}
               </Link>
@@ -168,20 +165,20 @@ const experience = [
       WorldpressIcon,
     ],
   },
-  {
-    title: "Graphics Designer",
-    subtext:
-      "Dabbling in the art of visual storytelling, where colors, shapes, and creativity converge to bring ideas to life.",
-    linkTo: "projects/graphic-design",
-    badge: "Explored",
-    icons: [
-      FigmaIcon,
-      PhotoshopIcon,
-      IndesignIcon,
-      IllustratorIcon,
-      AfterEffectIcon,
-      CanvaIcon,
-      // AffinityPhoto,
-    ],
-  },
+  // {
+  //   title: "Graphics Designer",
+  //   subtext:
+  //     "Dabbling in the art of visual storytelling, where colors, shapes, and creativity converge to bring ideas to life.",
+  //   linkTo: "projects/graphic-design",
+  //   badge: "Explored",
+  //   icons: [
+  //     FigmaIcon,
+  //     PhotoshopIcon,
+  //     IndesignIcon,
+  //     IllustratorIcon,
+  //     AfterEffectIcon,
+  //     CanvaIcon,
+  //     // AffinityPhoto,
+  //   ],
+  // },
 ]
