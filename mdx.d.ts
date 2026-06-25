@@ -3,10 +3,10 @@ declare module "*.mdx" {
   export const meta: {
     title: string
     date: string
-    description?: string
+    percept?: string
     tags?: string[]
     draft?: boolean
-    hero?: string
+    thumbnail?: string
   }
   const MDXComponent: ComponentType<any>
   export default MDXComponent

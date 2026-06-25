@@ -3,10 +3,10 @@ import type { ComponentType } from "react"
 export type PostMeta = {
   title: string
   date: string
-  description?: string | undefined
+  percept?: string | undefined
   tags?: string[] | undefined
   draft?: boolean | undefined
-  hero?: string | undefined
+  thumbnail?: string | undefined
 }
 
 export type PostEntry = {
@@ -19,7 +19,7 @@ export type PostListItem = {
   slug: string
   title: string
   date: string
-  description?: string | undefined
+  percept?: string | undefined
   tags: string[]
 }
 
@@ -40,10 +40,10 @@ const allPosts: PostEntry[] = Object.entries(modules)
     meta: {
       title: mod.meta?.title ?? pathToSlug(path),
       date: mod.meta?.date ?? "",
-      description: mod.meta?.description,
+      percept: mod.meta?.percept,
       tags: mod.meta?.tags ?? [],
       draft: mod.meta?.draft ?? false,
-      hero: mod.meta?.hero,
+      thumbnail: mod.meta?.thumbnail,
     },
     Component: mod.default,
   }))
@@ -55,7 +55,7 @@ export function getAllPostsMeta(): PostListItem[] {
     slug: p.slug,
     title: p.meta.title,
     date: p.meta.date,
-    description: p.meta.description,
+    percept: p.meta.percept,
     tags: p.meta.tags ?? [],
   }))
 }
