@@ -1,8 +1,6 @@
-"use client";
-
-import { Table } from "@tanstack/react-table";
-import { parseAsInteger, useQueryState } from "nuqs";
-import { pagination as pag } from "@/lib/data";
+import { Table } from "@tanstack/react-table"
+import { parseAsInteger, useQueryState } from "nuqs"
+import { pagination as pag } from "@/lib/data"
 
 import {
   Pagination,
@@ -12,42 +10,42 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/ui/pagination"
 
-import { useMemo } from "react";
+import { useMemo } from "react"
 
 interface DataTablePaginationProps<TData> {
-  table: Table<TData>;
+  table: Table<TData>
 }
 
 function DataTablePagination<TData>({
   table,
 }: DataTablePaginationProps<TData>) {
-  const [page] = useQueryState("page", parseAsInteger.withDefault(pag.page));
-  const totalPages = table.getPageCount();
+  const [page] = useQueryState("page", parseAsInteger.withDefault(pag.page))
+  const totalPages = table.getPageCount()
 
   const pageNumbers = useMemo(() => {
-    const pageSet = Math.ceil(page / 3) - 1;
-    const start = pageSet * 3 + 1;
-    const end = Math.min(start + 2, totalPages);
-    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-  }, [page, totalPages]);
+    const pageSet = Math.ceil(page / 3) - 1
+    const start = pageSet * 3 + 1
+    const end = Math.min(start + 2, totalPages)
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+  }, [page, totalPages])
 
   // Handle next set of pages
   const handleNextSet = () => {
-    const nextSetStart = Math.ceil(page / 3) * 3 + 1;
+    const nextSetStart = Math.ceil(page / 3) * 3 + 1
     if (nextSetStart <= totalPages) {
-      table.setPageIndex(nextSetStart - 1);
+      table.setPageIndex(nextSetStart - 1)
     }
-  };
+  }
 
   // Handle previous set of pages
   const handlePreviousSet = () => {
-    const previousSetStart = Math.floor((page - 1) / 3) * 3 - 2;
+    const previousSetStart = Math.floor((page - 1) / 3) * 3 - 2
     if (previousSetStart > 0) {
-      table.setPageIndex(previousSetStart - 1);
+      table.setPageIndex(previousSetStart - 1)
     }
-  };
+  }
 
   return (
     <div className="mt-4 flex items-center justify-between px-2 w-full">
@@ -65,7 +63,7 @@ function DataTablePagination<TData>({
 
         <Pagination className=" w-fit">
           <PaginationContent>
-            {pageNumbers[0] > 1 && (
+            {pageNumbers[0]! > 1 && (
               <>
                 <PaginationItem>
                   <PaginationLink
@@ -81,7 +79,7 @@ function DataTablePagination<TData>({
               </>
             )}
 
-            {pageNumbers.map((pageNum) => (
+            {pageNumbers.map(pageNum => (
               <PaginationItem key={pageNum}>
                 <PaginationLink
                   href="#"
@@ -93,7 +91,7 @@ function DataTablePagination<TData>({
               </PaginationItem>
             ))}
 
-            {pageNumbers[pageNumbers.length - 1] < totalPages && (
+            {pageNumbers[pageNumbers.length - 1]! < totalPages && (
               <>
                 <PaginationItem>
                   <PaginationEllipsis onClick={handleNextSet} />
@@ -133,7 +131,7 @@ function DataTablePagination<TData>({
         </Button>
       </div> */}
     </div>
-  );
+  )
 }
 
-export default DataTablePagination;
+export default DataTablePagination

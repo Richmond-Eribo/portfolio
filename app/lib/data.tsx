@@ -14,6 +14,8 @@ export const R2PublicURL =
 
 export const SITE_URL = "https://richmonderibo.dev"
 
+export const pagination = { page: 1, limit: 100 }
+
 export const roles = [
   {
     position: "IT Specialist",
