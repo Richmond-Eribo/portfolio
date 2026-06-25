@@ -32,12 +32,40 @@ import { Link } from "react-router"
 import { HomeVideo } from "../components/home-video"
 import { getAllPostsMeta } from "../lib/posts"
 import type { Route } from "./+types/index"
+import { SITE_URL } from "@/lib/data"
 
 export async function loader() {
   const posts = getAllPostsMeta()
   return {
     posts,
   }
+}
+
+export const meta: Route.MetaFunction = () => {
+  const title = "Richmond Eribo | Frontend Engineer"
+  const description =
+    "Frontend Engineer building high-performance, user-centric web applications for startups, government agencies, and global brands. Passionate about modern web technologies, AI, and digital innovation."
+
+  return [
+    { title: `${title} | Richmond Eribo` },
+    { name: "title", content: title },
+    { name: "description", content: description },
+
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: `${SITE_URL}/thoughts` },
+
+    {
+      property: "og:image",
+      content: "https://richmonderibo.dev/richmond.webp",
+    },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:url", content: "https://richmonderibo.dev/" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ]
 }
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
