@@ -3,6 +3,8 @@
 @import "tw-animate-css";
 @import "./styles/view-transitions.css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -49,7 +51,7 @@
 }
 
 :root {
-  --background: oklch(0.141 0.005 285.823);
+  --background: oklch(20.398% 0.01587 284.896);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.21 0.006 285.885);
     --card-foreground: oklch(0.985 0 0);
@@ -117,7 +119,7 @@
 }
 
 .dark {
-    --background: oklch(0.141 0.005 285.823);
+    --background: oklch(32.461% 0.10748 278.593);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.21 0.006 285.885);
     --card-foreground: oklch(0.985 0 0);
