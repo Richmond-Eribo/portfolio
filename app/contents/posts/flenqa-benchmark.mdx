@@ -1,0 +1,61 @@
+import { LeaderboardTable } from "../../components/flenqa-leaderboard/table-leaderboard/leaderboard-table"
+
+export const meta = {
+  title:
+    "FLenQA Benchmark: Do Current LLMs Reason at Their Claimed Context Lengths?",
+  date: "2026-06-24",
+  percept:
+    "I ported a 2024 research paper to a live platform and benchmarked 9 open-source models. Here's what I found when I tested whether models can actually reason over long inputs.",
+  tags: ["ai", "llm", "benchmarking", "research", "open-router"],
+}
+
+I have been working on a local first pdf agentic research assistant and then the
+question struck me, why have we moved from prompt engineering to RAG to context
+management, now harness and loops? Its all about preventing the margin where
+LLMs reasoning starts to deprecate.
+
+A paper released in 2024 by Mosh Levy, Along Jacoby, and Yoav Goldberg
+introduced a new framework called Flexible LENgth Question Answering dataset
+[FlenQA](https://arxiv.org/pdf/2402.14848), a benchmark designed to test a
+phenomenon known as "lost in the middle" — where large language models struggle
+to reason over long contexts.
+
+I decided to run a benchmark on some of the models I'm working on, using the
+Open Router gateway to test them without managing separate API keys.
+
+The FlenQA framework investigates something that's been bugging me: what happens
+when you feed an LLM more tokens? The conventional narrative says "bigger
+context window = better," but Levy's paper challenges that. They found
+significant degradation in LLM reasoning at input lengths far shorter than the
+model's technical maximum. A lot of big words, the main point is simply saying
+just because a model can _accept_ 1 million tokens doesn't mean it can _reason_
+effectively over them.
+
+I ran 9 models across 150 samples each (10 samples per task × 5 context sizes ×
+3 tasks), using standard prompting without chain-of-thought. The maximum token
+used was 3000, although Granite 4.1 8B has a maximum context length of 131,000
+it performed better than Deepseek V4 flash and pro, which I think is kind of
+confusing.
+
+Well, this might be favoritism, but I did test the deepseek models again, this
+will be published in the version 2 of this blog.
+
+Here's the leaderboard.
+
+<LeaderboardTable />
+
+You might wonder what model is Owl Alpha, and which frontier lab trained it.
+It's a stealth model, or you can call it a mystery model. Labs do this when
+their aim is to gather real feedbacks, telemetry from users. A model with over a
+million context windows with no current owner did better than Qwen, Gemini
+Flash, and Deepseek in this benchmark.
+
+DeepSeek V4 Pro underperformed its reputation on this benchmark, landing at
+89.33%, the lowest score among the larger models.
+
+Here's the thing: FLenQA is a narrow benchmark. It tests one specific capability
+by finding and reasoning over relevant facts in a sea of padding, in a
+True/False format. High scores don't mean a model is broadly better; low scores
+don't mean it's bad at everything else. But what it does measure cleanly is
+whether a model can maintain reasoning quality when there's more noise around
+the signal.
