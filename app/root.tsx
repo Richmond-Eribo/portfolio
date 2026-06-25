@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router"
 
+import { Toaster } from "@/components/ui/sonner"
 
 import "./app.css"
 import { Route } from "./+types/root"
@@ -89,6 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body className="font-geist tracking-wide">
         {children}
 
+        <Toaster />
         <ScrollRestoration />
         <Scripts />
       </body>
