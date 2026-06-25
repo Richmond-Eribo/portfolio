@@ -61,6 +61,15 @@ export default function SingleThought({ loaderData }: Route.ComponentProps) {
         {/* {entry.meta.percept && <p className="">{entry.meta.percept}</p>} */}
       </header>
 
+      {entry.meta.thumbnail && (
+        <img
+          src={entry.meta.thumbnail}
+          height={"auto"}
+          width={"100%"}
+          alt="thumbnail image"
+        />
+      )}
+
       <article className="prose prose-invert max-w-none space-y-4 font-inter font-light leading-relaxed prose-a:text-accent-400 prose-a:font-medium prose-a:no-underline hover:prose-a:underline">
         <PostContent />
       </article>
