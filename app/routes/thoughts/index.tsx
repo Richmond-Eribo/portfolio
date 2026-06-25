@@ -1,7 +1,7 @@
 import { Calendar, Clock } from "lucide-react"
 import { Link } from "react-router"
 import type { Route } from "./+types/index"
-import { getAllPostsMeta } from "@/lib/posts"
+import { getAllPostsMeta } from "../../lib/posts"
 
 const SITE_URL = "https://richmonderibo.dev"
 
@@ -60,7 +60,7 @@ export default function Thoughts({ loaderData }: Route.ComponentProps) {
               </div>
             </div>
 
-            {p.description && <p className="text-gray-300">{p.description}</p>}
+            {p.percept && <p className="text-gray-300">{p.percept}</p>}
           </li>
         ))}
       </ul>

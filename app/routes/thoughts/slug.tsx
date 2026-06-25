@@ -1,8 +1,7 @@
 import { redirect } from "react-router"
-import { MDXProvider } from "@mdx-js/react"
 import { getPostBySlug } from "../../lib/posts"
 import type { Route } from "./+types/slug"
-import { SITE_URL } from "@/lib/data"
+import { SITE_URL } from "../../lib/data"
 
 export function loader({ params }: Route.LoaderArgs) {
   const slug = params.slug || ""
@@ -16,9 +15,9 @@ export const meta: Route.MetaFunction = ({ data }) => {
   const entry = slug ? getPostBySlug(slug) : undefined
   const title = entry?.meta.title ?? "Thought"
   const description =
-    entry?.meta.description ?? "Thoughts on AI, engineering, and product."
+    entry?.meta.percept ?? "Thoughts on AI, engineering, and product."
   const url = slug ? `${SITE_URL}/thoughts/${slug}` : `${SITE_URL}/thoughts`
-  const image = entry?.meta.hero ?? `${SITE_URL}/richmond.webp`
+  const image = entry?.meta.thumbnail ?? `${SITE_URL}/richmond.webp`
 
   return [
     { title: `${title} | Richmond Eribo` },
@@ -53,16 +52,16 @@ export default function SingleThought({ loaderData }: Route.ComponentProps) {
   return (
     <main className="space-y-6 text-zinc-300">
       <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-white">{entry.meta.title}</h1>
+        <h1 className="text-4xl font-medium text-white">{entry.meta.title}</h1>
         {entry.meta.date && (
           <p className="text-sm text-zinc-400">
             {new Date(entry.meta.date).toLocaleDateString()}
           </p>
         )}
-        {entry.meta.description && <p className="">{entry.meta.description}</p>}
+        {/* {entry.meta.percept && <p className="">{entry.meta.percept}</p>} */}
       </header>
 
-      <article className="space-y-4 leading-relaxed text-lg">
+      <article className="prose prose-invert max-w-none space-y-4 font-inter font-light leading-relaxed prose-a:text-accent-400 prose-a:font-medium prose-a:no-underline hover:prose-a:underline">
         <PostContent />
       </article>
     </main>
