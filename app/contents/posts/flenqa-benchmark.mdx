@@ -12,15 +12,12 @@ export const meta = {
 
 Some days ago, I started working on a research assistant that uses multi-agent orchestration mainly because the goal was to use small, local models (ignoring latency and output token/secs which impacts inference speed).
 
-Most small models are limited reasoning capability and highly susceptible to the "Context rot" problem and "lost in the middle" phenomenon as demonstrated in the paper Same Task, More Tokens by  Mosh Levy, et al. which created a Benchmark named [FlenQA](https://arxiv.org/pdf/2402.14848).
+Most small models have limited reasoning capability and are highly susceptible to the "context rot" problem and "lost in the middle" phenomenon as demonstrated in the paper ["Same Task, More Tokens"](https://arxiv.org/pdf/2402.14848) by  Mosh Levy, et al. They created a Benchmark named FlenQA.
 
-The FlenQA framework investigates something that's been bugging me: what happens
-when you feed an LLM more tokens? The conventional narrative says "bigger
-context window = better," but local models have limitations in their context window length and Levy's paper challenges the narrative. They found
+The FlenQA framework investigates something that's been bugging me, What happens to an LLM's output quality when you give it longer prompts? The conventional narrative says "bigger
+context window = better output," but local models have limitations in their context window length and Levy's paper challenges the narrative. They found
 significant degradation in LLM reasoning at input lengths far shorter than the
-model's technical maximum. A lot of big words, the main point is simply saying
-just because a model can _accept_ 1 million tokens doesn't mean it can _reason_
-effectively over them.
+model's technical maximum. In simple terms, just because a model can _accept_ 1 million tokens doesn't mean it can _reason_ effectively over them.
 
 I decided to run a benchmark on some of the models I'm working on, using the
 Open Router gateway to test them without managing separate API keys.
@@ -34,7 +31,7 @@ Here's the leaderboard.
 
 <LeaderboardTable />
 
-You might wonder what model is "Owl Alpha", and which frontier lab trained it.
+You may wonder what model is "Owl Alpha", and which frontier lab trained it.
 It's a stealth model, or you can call it a mystery model. Labs do this when
 their aim is to gather traces from users' request. A model with over a
 million context windows with no current owner did better than Qwen, Gemini
