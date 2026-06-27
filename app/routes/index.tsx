@@ -80,46 +80,9 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
 
         <Bio />
       </div>
-      <SocialLinks />
+      {/* <SocialLinks /> */}
 
       <HomeVideo />
-
-      {/* experience */}
-      <div className="">
-        <h2 className="text-2xl font-bold mb-6">Experience</h2>
-
-        <div className="grid grid-cols-2 gap-6">
-          {experience.map((per, index) => (
-            <Card className="max-md:col-span-2 " key={index}>
-              <CardHeader>
-                <div className="w-full flex justify-between">
-                  <h3 className="font-medium  text-lg">{per.title} </h3>
-                </div>
-              </CardHeader>
-
-              <CardContent className="h-full">
-                <p className=" leading-relaxed mb-4 ">{per.subtext}</p>
-              </CardContent>
-
-              <CardFooter className="relative w-full flex justify-between gap-5">
-                <SkillsCarousel
-                  icons={per.icons as any[]}
-                  className={cn(index == 2 ? "max-w-[30%]" : "max-w-[70%]")}
-                />
-
-                {per.icons && (
-                  <Link
-                    to={per.linkTo}
-                    className="border border-zinc-800 rounded-full p-2 hover:rotate-12 duration-200 cursor-pointer transition-transform"
-                  >
-                    <ArrowUpRight />
-                  </Link>
-                )}
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
 
       {/* Thoughts */}
       <div className="">
@@ -159,6 +122,43 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
               View all thoughts →
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* experience */}
+      <div className="">
+        <h2 className="text-2xl font-bold mb-6">Experience</h2>
+
+        <div className="grid grid-cols-2 gap-6">
+          {experience.map((per, index) => (
+            <Card className="max-md:col-span-2 " key={index}>
+              <CardHeader>
+                <div className="w-full flex justify-between">
+                  <h3 className="font-medium  text-lg">{per.title} </h3>
+                </div>
+              </CardHeader>
+
+              <CardContent className="h-full">
+                <p className=" leading-relaxed mb-4 ">{per.subtext}</p>
+              </CardContent>
+
+              <CardFooter className="relative w-full flex justify-between gap-5">
+                <SkillsCarousel
+                  icons={per.icons as any[]}
+                  className={cn(index == 2 ? "max-w-[30%]" : "max-w-[70%]")}
+                />
+
+                {per.icons && (
+                  <Link
+                    to={per.linkTo}
+                    className="border border-zinc-800 rounded-full p-2 hover:rotate-12 duration-200 cursor-pointer transition-transform"
+                  >
+                    <ArrowUpRight />
+                  </Link>
+                )}
+              </CardFooter>
+            </Card>
+          ))}
         </div>
       </div>
 
