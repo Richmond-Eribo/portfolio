@@ -10,16 +10,11 @@ export const meta = {
   thumbnail: "/thumbnails/flenqa.png"
 }
 
-I have been working on a local first pdf agentic research assistant and then the
-question struck me, why have we moved from prompt engineering to RAG to context
-management, now harness and loops? Its all about preventing the margin where
-LLMs reasoning starts to deprecate.
+Some days ago, I started working on a research assistant that uses multi-agent orchestration mainly because the goal was to use local and small models (ignoring latency and output token/secs). The downside to this approach is the limited reasoning capability of small models. 
 
-A paper released in 2024 by Mosh Levy, Along Jacoby, and Yoav Goldberg
-introduced a new framework called Flexible LENgth Question Answering dataset
-[FlenQA](https://arxiv.org/pdf/2402.14848), a benchmark designed to test a
-phenomenon known as "lost in the middle" — where large language models struggle
-to reason over long contexts.
+Small models are highly susceptible to the "Context rot" problem and "lost in the middle" phenomenon as demonstrated in the paper Same Task, More Tokens by  Mosh Levy, et al. which created a Benchmark named [FlenQA](https://arxiv.org/pdf/2402.14848). 
+
+Well, I began with stating the problem and issues as shown in the research, but there has been multiple solutions to solve this problem. We have moved from "Prompt engineering" to "Retrieval Augmented Generation", to "Context engineering" championed by Andrej Karpathy, to Harness and Loops - created for good architecture around LLMs.
 
 I decided to run a benchmark on some of the models I'm working on, using the
 Open Router gateway to test them without managing separate API keys.
@@ -32,20 +27,17 @@ model's technical maximum. A lot of big words, the main point is simply saying
 just because a model can _accept_ 1 million tokens doesn't mean it can _reason_
 effectively over them.
 
-I ran 9 models across 150 samples each (10 samples per task × 5 context sizes ×
+I ran 10 models across 150 samples each (10 samples per task × 5 context sizes ×
 3 tasks), using standard prompting without chain-of-thought. The maximum token
 used was 3000, although Granite 4.1 8B has a maximum context length of 131,000
-it performed better than Deepseek V4 flash and pro, which I think is kind of
-confusing.
-
-Well, this might be favoritism, but I did test the deepseek models again, this
+it performed better than Deepseek V4 flash and pro, which I think would like to further explore. Well, this might be favoritism, but I did test the deepseek models again, this
 will be published in the version 2 of this blog.
 
 Here's the leaderboard.
 
 <LeaderboardTable />
 
-You might wonder what model is Owl Alpha, and which frontier lab trained it.
+You might wonder what model is "Owl Alpha", and which frontier lab trained it.
 It's a stealth model, or you can call it a mystery model. Labs do this when
 their aim is to gather real feedbacks, telemetry from users. A model with over a
 million context windows with no current owner did better than Qwen, Gemini
@@ -53,10 +45,3 @@ Flash, and Deepseek in this benchmark.
 
 DeepSeek V4 Pro underperformed its reputation on this benchmark, landing at
 89.33%, the lowest score among the larger models.
-
-Here's the thing: FLenQA is a narrow benchmark. It tests one specific capability
-by finding and reasoning over relevant facts in a sea of padding, in a
-True/False format. High scores don't mean a model is broadly better; low scores
-don't mean it's bad at everything else. But what it does measure cleanly is
-whether a model can maintain reasoning quality when there's more noise around
-the signal.
