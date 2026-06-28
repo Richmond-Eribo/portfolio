@@ -14,7 +14,7 @@ Some days ago, I started working on a research assistant that uses multi-agent o
 
 Most small models have limited reasoning capability and are highly susceptible to the "context rot" problem and "lost in the middle" phenomenon as demonstrated in the paper ["Same Task, More Tokens"](https://arxiv.org/pdf/2402.14848) by  Mosh Levy, et al. They created a Benchmark named FlenQA.
 
-The FlenQA framework investigates something that's been bugging me, "what happens to an LLM's output quality when you give it longer prompts?". The conventional narrative says "bigger context window = better output," but local models have limitations in their context window length and Levy's paper challenges that narrative. They found
+The FlenQA framework investigates something that's been bugging me, "what happens to an LLM's output quality when you give it longer prompts?". The conventional narrative says "bigger context window = better output", but local models have limitations in their context window length and Levy's paper challenges that narrative. They found
 significant degradation in LLM reasoning at input lengths far shorter than the
 model's technical maximum. In simple terms, just because a model can _accept_ 1 million tokens doesn't mean it can _reason_ effectively over them.
 
